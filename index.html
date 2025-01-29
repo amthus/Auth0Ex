@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth0 Login</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/1.22/auth0-spa-js.production.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Connexion avec Auth0</h1>
+        <button id="login-btn">Se connecter</button>
+        <button id="logout-btn" style="display: none;">Se déconnecter</button>
+        <div id="user-info" style="display: none;">
+            <h2>Bienvenue, <span id="user-name"></span> !</h2>
+            <img id="user-pic" src="" alt="Photo de profil">
+        </div>
+    </div>
+    <script src="auth-config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

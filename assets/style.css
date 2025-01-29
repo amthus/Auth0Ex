@@ -1,0 +1,67 @@
+/* Dégradé de fond élégant */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #4F1787, #EB3678, #FB773C);
+    color: white;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+/* Conteneur principal */
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+/* Titre */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Boutons stylisés */
+button {
+    background: #FB773C;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px;
+}
+
+button:hover {
+    background: #EB3678;
+    transform: scale(1.05);
+}
+
+/* Infos utilisateur */
+#user-info {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+#user-name {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+#user-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-top: 10px;
+    border: 3px solid white;
+}
