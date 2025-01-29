@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const auth0 = await createAuth0Client({
         domain: AUTH0_DOMAIN,
         client_id: AUTH0_CLIENT_ID,
-        redirect_uri: window.location.origin
+        redirect_uri:"https://vercel.com/amthus-s-projects/auth0/EJyRbjZ6UuKzxqDL9TT8g9zfReZk"
     });
 
     const loginBtn = document.getElementById("login-btn");
