@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", async function () {
-    const auth0 = await createAuth0Client({
-        domain:"dev-f4mip1ghvqydxcij.us.auth0.com",
-        client_id:"ZtWJg3ZbGtrRKkZNSvTkn1syfAbuq00T",
-        redirect_uri:"https://vercel.com/amthus-s-projects/auth0/EJyRbjZ6UuKzxqDL9TT8g9zfReZk"
+    const auth0Client = await createAuth0Client({
+        domain: "dev-f4mip1ghvqydxcij.us.auth0.com",
+        client_id: "ZtWJg3ZbGtrRKkZNSvTkn1syfAbuq00T",
+        redirect_uri: "https://vercel.com/amthus-s-projects/auth0/EJyRbjZ6UuKzxqDL9TT8g9zfReZk"
     });
 
     const loginBtn = document.getElementById("login-btn");
@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     const userPic = document.getElementById("user-pic");
 
     async function updateUI() {
-        const isAuthenticated = await auth0.isAuthenticated();
-        
+        const isAuthenticated = await auth0Client.isAuthenticated();
+
         if (isAuthenticated) {
-            const user = await auth0.getUser();
+            const user = await auth0Client.getUser();
             userName.textContent = user.name;
             userPic.src = user.picture;
             loginBtn.style.display = "none";
@@ -28,16 +28,18 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
     }
 
-    loginBtn.addEventListener("click", async () => {
-        await auth0.loginWithRedirect();
+    loginBtn.addEventListener("click", async (e) => {
+        e.preventDefault();
+        await auth0Client.loginWithRedirect();
     });
 
-    logoutBtn.addEventListener("click", async () => {
-        await auth0.logout({ returnTo: window.location.origin });
+    logoutBtn.addEventListener("click", async (e) => {
+        e.preventDefault();
+        await auth0Client.logout({ returnTo: window.location.origin });
     });
 
-    if (window.location.search.includes("code=")) {
-        await auth0.handleRedirectCallback();
+    if (window.location.search.includes("code=") || window.location.search.includes("error=")) {
+        await auth0Client.handleRedirectCallback();
         window.history.replaceState({}, document.title, "/");
     }
 
